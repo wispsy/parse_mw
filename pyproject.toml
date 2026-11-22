@@ -1,0 +1,30 @@
+[project]
+name = "parse-mw"
+version = "0.1.0"
+description = "Bounded source-preserving MediaWiki parsing and safe typed HTML rendering"
+readme = "README.md"
+requires-python = ">=3.14"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "wispsy"}]
+dependencies = []
+classifiers = ["Development Status :: 3 - Alpha", "Programming Language :: Python :: 3.14", "Typing :: Typed"]
+
+[project.urls]
+Repository = "https://github.com/wispsy/parse_mw"
+Issues = "https://github.com/wispsy/parse_mw/issues"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["uv_build>=0.13.6,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+source-include = ["tests/**", "docs/**", "scripts/**", "examples/**", "LICENSE", "README.md", "PROVENANCE.md", "CHANGELOG.md"]
+
+[tool.pytest.ini_options]
+addopts = ["-ra", "--strict-config", "--strict-markers"]
+testpaths = ["tests"]
+filterwarnings = ["error"]
